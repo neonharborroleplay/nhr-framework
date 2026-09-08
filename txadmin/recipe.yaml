@@ -17,7 +17,7 @@ tasks:
     src: https://github.com/citizenfx/cfx-server-data
     ref: master
     subpath: resources
-    dest: ./resources/[cfx-default]
+    dest: ./resources
 
   # Install release builds so the required web and JavaScript assets are present.
   - action: download_file
