@@ -6,7 +6,7 @@ author: Neon Harbor Development
 description: Full NHR roleplay framework with core systems, jobs, economy, vehicles, housing, emergency services, phone, MDT, and administration.
 
 tasks:
-  # Download this NHR repository. Replace the repository owner before publishing.
+  # Download the published NHR repository.
   - action: download_github
     src: https://github.com/neonharborroleplay/nhr-framework
     ref: main

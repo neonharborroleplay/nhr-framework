@@ -6,13 +6,13 @@ This folder contains the deploy recipe and generated server configuration for NH
 
 1. Create a GitHub repository named `nhr-framework`.
 2. Upload the complete NHR package, preserving the root-level `resources` and `txadmin` folders.
-3. In `txadmin/recipe.yaml`, replace `REPLACE_WITH_GITHUB_USERNAME` with the repository owner.
+3. Confirm `txadmin/recipe.yaml` points to `https://github.com/neonharborroleplay/nhr-framework`.
 4. Commit the change to the `main` branch.
 
 The remote recipe URL will be:
 
 ```text
-https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/nhr-framework/main/txadmin/recipe.yaml
+https://raw.githubusercontent.com/neonharborroleplay/nhr-framework/main/txadmin/recipe.yaml
 ```
 
 ## Deploy
