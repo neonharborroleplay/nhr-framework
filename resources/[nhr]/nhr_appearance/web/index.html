@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>NHR Appearance</title>
+</head>
+<body>
+  <main id="app">
+    <header>
+      <div><span class="eyebrow">NHR IDENTITY</span><h1>Character Studio</h1></div>
+      <div class="rotate"><button data-rotate="-20">↶</button><button data-rotate="20">↷</button></div>
+    </header>
+    <nav id="tabs"></nav>
+    <div id="camera-views" class="camera-views" aria-label="Camera view">
+      <button type="button" data-camera="whole">Full</button>
+      <button type="button" data-camera="head">Head</button>
+      <button type="button" data-camera="chest">Chest</button>
+      <button type="button" data-camera="legs">Legs</button>
+      <button type="button" data-camera="shoes">Shoes</button>
+    </div>
+    <section id="content"></section>
+    <footer>
+      <button id="cancel" class="ghost">Discard</button>
+      <button id="save" class="primary">Save appearance</button>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

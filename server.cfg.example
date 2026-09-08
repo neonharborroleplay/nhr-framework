@@ -1,0 +1,58 @@
+set mysql_connection_string "mysql://USER:PASSWORD@127.0.0.1/nhr?charset=utf8mb4"
+
+ensure oxmysql
+ensure ox_lib
+ensure ox_target
+ensure spawnmanager
+ensure pma-voice
+ensure chat
+
+ensure nhr_core
+ensure nhr_logs
+ensure nhr_security
+ensure nhr_health
+ensure nhr_world
+ensure nhr_chat
+ensure nhr_scoreboard
+ensure nhr_emotes
+ensure nhr_multichar
+ensure nhr_spawn
+ensure nhr_vehicles
+ensure nhr_vehiclekeys
+ensure nhr_fuel
+ensure nhr_inventory
+ensure nhr_shops
+ensure nhr_banking
+ensure nhr_status
+ensure nhr_hud
+ensure nhr_dealership
+ensure nhr_garages
+ensure nhr_vehiclemarket
+ensure nhr_jobs
+ensure nhr_cityhall
+ensure nhr_drivingschool
+ensure nhr_management
+ensure nhr_dispatch
+ensure nhr_evidence
+ensure nhr_police
+ensure nhr_ambulance
+ensure nhr_admin
+ensure nhr_doorlocks
+ensure nhr_housing
+ensure nhr_appearance
+ensure nhr_phone
+ensure nhr_mdt
+ensure nhr_crafting
+ensure nhr_robberies
+ensure nhr_finance
+ensure nhr_economy
+ensure nhr_customs
+ensure nhr_businesses
+ensure nhr_billing
+ensure nhr_trade
+ensure nhr_radio
+ensure nhr_weapons
+
+add_ace group.admin nhr.admin allow
+add_ace group.admin nhr.mod allow
+# add_principal identifier.license:REPLACE_ME group.admin

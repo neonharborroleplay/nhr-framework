@@ -1,0 +1,5 @@
+CreateThread(function()
+    TriggerEvent('chat:addSuggestion','/me','Describe your character action')
+    TriggerEvent('chat:addSuggestion','/do','Describe the surrounding scene')
+    TriggerEvent('chat:addSuggestion','/ooc','Send a global out-of-character message')
+end)

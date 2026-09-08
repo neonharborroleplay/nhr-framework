@@ -1,0 +1,10 @@
+NHRWorld={
+    startHour=9,
+    startMinute=0,
+    clockTickMs=5000,
+    minutesPerTick=1,
+    weatherIntervalMs=20*60*1000,
+    weatherCycle={'CLEAR','EXTRASUNNY','CLOUDS','OVERCAST','RAIN','CLEAR'},
+    trafficDensity=0.85,
+    pedestrianDensity=0.85
+}

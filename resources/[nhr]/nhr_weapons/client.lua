@@ -1,0 +1,8 @@
+local function shop()
+    lib.registerContext({id='nhr_weapon_shop',title='Ammu-Nation',options={{title='Pistol',description=('$%d · weapon license required'):format(NHRWeaponShop.pistolPrice),onSelect=function()local ok=lib.callback.await('nhr_weapons:buy',false,'weapon_pistol');lib.notify({type=ok and'success'or'error',description=ok and'Pistol purchased.'or'Purchase denied.'})end},{title='12-round ammunition box',description='$'..NHRWeaponShop.ammoPrice,onSelect=function()lib.callback.await('nhr_weapons:buy',false,'pistol_ammo')end}}});lib.showContext('nhr_weapon_shop')
+end
+CreateThread(function()exports.ox_target:addSphereZone({coords=NHRWeaponShop.coords,radius=1.5,options={{name='nhr_weapon_shop',label='Browse weapons',icon='fa-solid fa-gun',onSelect=shop}}})end)
+RegisterNetEvent('nhr_weapons:client:equip',function()local ped=PlayerPedId();if GetSelectedPedWeapon(ped)==`WEAPON_PISTOL`then SetCurrentPedWeapon(ped,`WEAPON_UNARMED`,true)else GiveWeaponToPed(ped,`WEAPON_PISTOL`,0,false,true)end end)
+RegisterNetEvent('nhr_weapons:client:ammo',function(amount)AddAmmoToPed(PlayerPedId(),`WEAPON_PISTOL`,amount)end)
+RegisterCommand('weaponlicense',function()local p=lib.getClosestPlayer(GetEntityCoords(PlayerPedId()),4.0,false);if not p then return end;local x=lib.inputDialog('Weapon License',{{type='select',label='Action',options={{value='grant',label='Grant'},{value='revoke',label='Revoke'}}}});if x then lib.callback.await('nhr_weapons:license',false,GetPlayerServerId(p),x[1])end end,false)
+CreateThread(function()while true do Wait(5000)if GetSelectedPedWeapon(PlayerPedId())==`WEAPON_PISTOL`and not lib.callback.await('nhr_weapons:hasPistol',false)then RemoveWeaponFromPed(PlayerPedId(),`WEAPON_PISTOL`)end end end)

@@ -1,0 +1,64 @@
+$engine: 3
+$onesync: on
+name: NHR Framework
+version: 1.0.0
+author: Neon Harbor Development
+description: Full NHR roleplay framework with core systems, jobs, economy, vehicles, housing, emergency services, phone, MDT, and administration.
+
+tasks:
+  # Download this NHR repository. Replace the repository owner before publishing.
+  - action: download_github
+    src: https://github.com/REPLACE_WITH_GITHUB_USERNAME/nhr-framework
+    ref: main
+    dest: ./tmp/nhr
+
+  # Install the stock Cfx.re resources used by NHR.
+  - action: download_github
+    src: https://github.com/citizenfx/cfx-server-data
+    ref: master
+    subpath: resources
+    dest: ./resources/[cfx-default]
+
+  # Install release builds so the required web and JavaScript assets are present.
+  - action: download_file
+    url: https://github.com/overextended/oxmysql/releases/latest/download/oxmysql.zip
+    path: ./tmp/oxmysql.zip
+  - action: unzip
+    src: ./tmp/oxmysql.zip
+    dest: ./resources/[ox]
+
+  - action: download_file
+    url: https://github.com/overextended/ox_lib/releases/latest/download/ox_lib.zip
+    path: ./tmp/ox_lib.zip
+  - action: unzip
+    src: ./tmp/ox_lib.zip
+    dest: ./resources/[ox]
+
+  - action: download_file
+    url: https://github.com/overextended/ox_target/releases/latest/download/ox_target.zip
+    path: ./tmp/ox_target.zip
+  - action: unzip
+    src: ./tmp/ox_target.zip
+    dest: ./resources/[ox]
+
+  - action: download_github
+    src: https://github.com/AvarianKnight/pma-voice
+    ref: main
+    dest: ./resources/[voice]/pma-voice
+
+  # Install NHR resources and the txAdmin-aware server configuration.
+  - action: copy_path
+    src: ./tmp/nhr/resources/[nhr]
+    dest: ./resources/[nhr]
+
+  - action: copy_path
+    src: ./tmp/nhr/txadmin/server.cfg
+    dest: ./server.cfg
+
+  # Create the selected database and import the complete NHR schema.
+  - action: connect_database
+  - action: query_database
+    file: ./tmp/nhr/resources/[nhr]/nhr_core/sql/nhr.sql
+
+  - action: remove_path
+    path: ./tmp
